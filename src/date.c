@@ -88,12 +88,12 @@ month_init(month_t *month) {
   struct tm *timeinfo = localtime(&current);
   /* By default tm_wday represents offset from sunday by 0, transform
    * it to european scale (week starts at mondays) */
-  timeinfo->tm_wday = timeinfo->tm_wday ? timeinfo->tm_wday - 1 : Sunday;
+  /* timeinfo->tm_wday = timeinfo->tm_wday ? timeinfo->tm_wday - 1 : Sunday; */
   month->mon = timeinfo->tm_mon;
   month->year = timeinfo->tm_year + 1900;
   month->today = timeinfo->tm_mday;
   month->ndays = DAYS_IN_MONTH[month->mon];
-  month->offset = (timeinfo->tm_wday - ((timeinfo->tm_mday % 7) - 1)) & 0x7;
-  month->nweeks = month->ndays / 7 + 1;
+  month->offset = (timeinfo->tm_wday - ((month->today % 7) - 1)) & 0x7;
+  month->nweeks = (month->ndays + month->offset) / 7 + 1;
   return 0;
 }

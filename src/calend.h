@@ -28,13 +28,13 @@ enum Months {
 };
 
 enum Days {
-  Monday = 0,
+  Sunday = 0,
+  Monday,
   Tuesday,
   Wednesday,
   Thursday,
   Friday,
   Saturday,
-  Sunday,
 };
 
 typedef struct {

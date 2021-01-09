@@ -6,7 +6,7 @@ print_head(month_t *month, int padding) {
   printf("%*c%s%*d\n\n", padding, ' ', month_name,
          N_DAYS * SPACE_X - (int)strlen(month_name), month->year);
   printf("%*c", padding+1, ' ');
-  for (int i = Monday; i <= Sunday; ++i) {
+  for (int i = Sunday; i <= Saturday; ++i) {
     printf("%.3s ", day_to_str(i));
   }
   putchar('\n');
