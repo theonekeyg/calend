@@ -1,4 +1,4 @@
-# CLI neat calendar utility
+# Neat CLI calendar utility
 
 ```
  ~$ calend
